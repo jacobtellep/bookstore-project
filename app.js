@@ -22,11 +22,12 @@ class Products {
     try {
       let result = await fetch('books.json');
       let data = await result.json();
-      let products = data.items;
+      let products = data;
       products = products.map((item) => {
         const title = item.title;
         const id = item.id;
         const image = item.image;
+        const price = item.price;
         return { title, price, id, image };
       });
       return products;
