@@ -18,7 +18,7 @@
     <header class="hero">
         <div class="banner">
             <h1 class="banner-title">About Us </h1>
-            <p>This book store was founded in 1905. Our goal is to provide literature to our customers and spread literacy throughout the world.</p>
+            <h3>This book store was founded in 1905. Our goal is to provide literature to our customers and spread literacy throughout the world through our online store.</h3>
 
 
         </div>
