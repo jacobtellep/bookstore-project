@@ -1,3 +1,5 @@
+<?php session_start() ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,7 +20,7 @@
 
 
     <header class="hero">
-        <div class="banner">
+        <div class="banner" style="width: 500px">
             <h1 class="banner-title">Contact Us </h1>
 
             <h3>512 S Kanawha St</h3>

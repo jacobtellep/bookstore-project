@@ -1,4 +1,11 @@
 <?php
+
+session_start();
+
+if (isset($_SESSION['loggedin'])) {
+    return;
+}
+
 // Include config file
 require_once "connectdb.php";
 
@@ -116,6 +123,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <title>Sign Up</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./styles.css">
     <style>
         body {
             font: 14px sans-serif;
@@ -129,6 +137,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 
 <body>
+    <?php include('nav.php'); ?>
     <div class="wrapper">
         <h2>Sign Up</h2>
         <p>Please fill this form to create an account.</p>
@@ -161,10 +170,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </select>
             </div>
             <div class="form-group">
-                <input type="submit" class="btn btn-primary" value="Submit">
-                <input type="reset" class="btn btn-secondary ml-2" value="Reset">
+                <input type="submit" class="banner-btn" value="Submit">
             </div>
-            <p>Already have an account? <a href="login.php">Login here</a>.</p>
+            <p>Already have an account? <a style="color: var(--primaryColor);" href="login.php">Login here</a>.</p>
         </form>
     </div>
 </body>

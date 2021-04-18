@@ -4,11 +4,11 @@
         <a href="index.php#books" style="text-decoration: none; font-weight: bold; color: black; padding-right: 10px;">SHOP</a>
         <a href="about.php" style="text-decoration: none; font-weight: bold; color: black; padding-right: 10px;">ABOUT</a>
         <a href="contact.php" style="text-decoration: none; font-weight: bold; color: black; padding-right: 10px;">CONTACT</a>
-        <a href="contact.php" style="text-decoration: none; font-weight: bold; color: black; padding-right: 400px;">LOGIN</a>
+        <a href="<?php include("conditional-route.php") ?>" style="text-decoration: none; font-weight: bold; color: black; padding-right: 400px;"><?php include('conditional-btn-name.php') ?></a>
 
     </div>
     <div class="navbar-center">
-        <img src="./images/jakes-bookstore.svg" alt="logo">
+        <a href="index.php"><img src="./images/jakes-bookstore.svg" alt="logo"></a>
         <div class="cart-btn">
             <span class="nav-icon">
                 <i class="fas fa-cart-plus"></i>
