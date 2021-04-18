@@ -15,7 +15,8 @@
 
     <p id="top"></p>
 
-    <?php include("connection.php"); ?>
+    <?php include("connectdb.php"); ?>
+    <?php include("create-table.php"); ?>
     <?php include("sqlToJSON.php"); ?>
 
     <?php

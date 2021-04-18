@@ -2,7 +2,7 @@
 
 //fetch table rows from mysql db
 $sql = "select * from books";
-$result = mysqli_query($mysqli, $sql) or die("Error in Selecting " . mysqli_error($connection));
+$result = mysqli_query($mysqli, $sql) or die("Error in Selecting " . mysqli_error($mysqli));
 
 //create an array
 $bookarray = array();
