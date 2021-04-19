@@ -31,7 +31,10 @@
         </div>
     </header>
 
-
+    <?php
+    include("cart.php");
+    ?>
+    <script src="./app.js"></script>
 
 </body>
 

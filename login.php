@@ -109,10 +109,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
     <link rel="stylesheet" href="./styles.css">
     <style>
-        .wrapper {
-            width: 350px;
-            padding: 20px;
-        }
+    .wrapper {
+        width: 350px;
+        padding: 20px;
+    }
+
+    input {
+        display: flex;
+        justify-content: center;
+    }
     </style>
 </head>
 
@@ -131,16 +136,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <div class="form-group">
                 <label>Email</label>
-                <input type="text" name="email" class="form-control <?php echo (!empty($email_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $email; ?>">
+                <input type="text" name="email"
+                    class="form-control <?php echo (!empty($email_err)) ? 'is-invalid' : ''; ?>"
+                    value="<?php echo $email; ?>">
                 <span class="invalid-feedback"><?php echo $email_err; ?></span>
             </div>
             <div class="form-group">
                 <label>Password</label>
-                <input type="password" name="password" class="form-control <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>">
+                <input type="password" name="password"
+                    class="form-control <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>">
                 <span class="invalid-feedback"><?php echo $password_err; ?></span>
             </div>
             <div class="form-group">
-                <input type="submit" class="banner-btn" value="Login">
+                <input style="margin-top: 10px;" type="submit" class="banner-btn" value="Login">
             </div>
 
             <p>Don't have an account? <a style="color: var(--primaryColor);" href="register.php">Sign up now</a>.</p>

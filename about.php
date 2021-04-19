@@ -20,13 +20,17 @@
     <header class="hero">
         <div class="banner" style="width: 500px">
             <h1 class="banner-title">About Us </h1>
-            <h3>This book store was founded in 1905. Our goal is to provide literature to our customers and spread literacy throughout the world through our online store.</h3>
+            <h3>This book store was founded in 2021. Our goal is to provide literature to our customers and spread
+                literacy throughout the world through our online store.</h3>
 
 
         </div>
     </header>
 
-
+    <?php
+    include("cart.php");
+    ?>
+    <script src="./app.js"></script>
 </body>
 
 </html>
