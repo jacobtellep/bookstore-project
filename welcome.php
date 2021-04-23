@@ -15,31 +15,43 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
 
 <head>
     <meta charset="UTF-8">
-    <title>Login</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <!-- font awesome -->
+    <script src="https://kit.fontawesome.com/a2ccfb5bd3.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./styles.css">
     <style>
-        body {
-            font: 14px sans-serif;
+        .wrapper {
+            padding: 20px;
         }
 
-        .wrapper {
-            width: 350px;
-            padding: 20px;
+        .center {
+            margin: auto;
+            width: 15%;
+            padding: 10px;
+
         }
     </style>
 </head>
 
 <body>
-    <div class="wrapper">
+    <?php include("nav.php"); ?>
 
-        <h1><?php echo "Hello " . $_SESSION["full_name"] . " your role is " . $_SESSION["role"] . "." ?></h1>
 
-        <div class="form-group">
-            <a href="./logout.php" class="btn btn-primary">Logout</a>
+    <div class="wrapper center">
+
+        <h1><?php echo "Hello " . $_SESSION["full_name"] . ".<br>" . " Your role is " . $_SESSION["role"] . "." ?></h1>
+
+        <div style="margin-top: 40px;">
+            <a href="./logout.php" class="banner-btn">Logout</a>
         </div>
 
 
     </div>
+
+    <?php include("cart.php"); ?>
+    <script src="./app.js"></script>
 </body>
 
 </html>

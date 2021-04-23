@@ -20,7 +20,8 @@ let buttonsDOM = [];
 class Products {
   async getProducts() {
     try {
-      let result = await fetch('books.json');
+      let result = await fetch('../uploads/documents/books.json');
+      console.log(result);
       let data = await result.json();
       let products = data;
       products = products.map((item) => {
@@ -85,7 +86,7 @@ class UI {
         // display cart item
         this.addCartItem(cartItem);
         // show the cart
-        this.showCart();
+        //this.showCart();
       }); // end of click event listener
     });
   } // end of getBagButtons

@@ -3,7 +3,7 @@
 session_start();
 
 if (isset($_SESSION['loggedin'])) {
-    return;
+    header("location: welcome.php");
 }
 
 // Include config file
@@ -129,56 +129,54 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
     <link rel="stylesheet" href="./styles.css">
     <style>
-    .wrapper {
-        width: 350px;
-        padding: 20px;
-    }
+        .wrapper {
+            padding: 20px;
 
-    input {
-        display: flex;
-        justify-content: center;
-    }
+        }
 
-    select {
-        display: flex;
-        justify-content: center;
-        width: 172px;
-    }
+        .center {
+            margin: auto;
+            width: 15%;
+            padding: 10px;
+
+        }
+
+        input {
+            display: flex;
+            justify-content: center;
+        }
+
+        select {
+            display: flex;
+            justify-content: center;
+            width: 172px;
+        }
     </style>
 </head>
 
 <body>
     <?php include('nav.php'); ?>
-    <div class="wrapper">
-        <h2>Sign Up</h2>
-        <p>Please fill this form to create an account.</p>
+    <div class="wrapper center">
+        <h2>Sign Up</h2><br>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <div class="form-group">
                 <label>Full Name</label>
-                <input type="text" name="full_name"
-                    class="form-control <?php echo (!empty($full_name_err)) ? 'is-invalid' : ''; ?>"
-                    value="<?php echo $email; ?>">
+                <input type="text" name="full_name" class="form-control <?php echo (!empty($full_name_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $email; ?>">
                 <span class="invalid-feedback"><?php echo $email_err; ?></span>
             </div>
             <div class="form-group">
                 <label>Email</label>
-                <input type="text" name="email"
-                    class="form-control <?php echo (!empty($email_err)) ? 'is-invalid' : ''; ?>"
-                    value="<?php echo $email; ?>">
+                <input type="text" name="email" class="form-control <?php echo (!empty($email_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $email; ?>">
                 <span class="invalid-feedback"><?php echo $email_err; ?></span>
             </div>
             <div class="form-group">
                 <label>Password</label>
-                <input type="password" name="password"
-                    class="form-control <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>"
-                    value="<?php echo $password; ?>">
+                <input type="password" name="password" class="form-control <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $password; ?>">
                 <span class="invalid-feedback"><?php echo $password_err; ?></span>
             </div>
             <div class="form-group">
                 <label>Confirm Password</label>
-                <input type="password" name="confirm_password"
-                    class="form-control <?php echo (!empty($confirm_password_err)) ? 'is-invalid' : ''; ?>"
-                    value="<?php echo $confirm_password; ?>">
+                <input type="password" name="confirm_password" class="form-control <?php echo (!empty($confirm_password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $confirm_password; ?>">
                 <span class="invalid-feedback"><?php echo $confirm_password_err; ?></span>
             </div>
             <div class="form-group">

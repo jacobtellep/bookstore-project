@@ -18,7 +18,8 @@
     <p id="top"></p>
 
     <?php include("connectdb.php"); ?>
-    <?php include("create-table.php"); ?>
+    <?php include("create-book-table.php"); ?>
+    <?php include("create-image-table.php"); ?>
     <?php include("sqlToJSON.php"); ?>
 
     <?php
