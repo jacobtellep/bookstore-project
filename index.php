@@ -18,8 +18,11 @@
     <p id="top"></p>
 
     <?php include("connectdb.php"); ?>
-    <?php include("create-table.php"); ?>
+    <?php include("create-book-table.php"); ?>
+    <?php include("create-image-table.php"); ?>
     <?php include("sqlToJSON.php"); ?>
+
+
 
     <?php
     include("nav.php");
@@ -36,10 +39,10 @@
     <?php
     include("cart.php");
     ?>
-
-
-
+    <?php include("footer.php"); ?>
     <script src="./app.js"></script>
+
+    <?php include("checkout.php"); ?>
 </body>
 
 </html>

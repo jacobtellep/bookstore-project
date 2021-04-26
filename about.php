@@ -26,10 +26,13 @@
 
         </div>
     </header>
-
+    <?php
+    include("hidden-products.php");
+    ?>
     <?php
     include("cart.php");
     ?>
+    <?php include("footer.php"); ?>
     <script src="./app.js"></script>
 </body>
 

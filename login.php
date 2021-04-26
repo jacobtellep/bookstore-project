@@ -1,4 +1,5 @@
 <?php
+// source for login page help https://www.tutorialrepublic.com/php-tutorial/php-mysql-login-system.php
 // Initialize the session
 session_start();
 
@@ -109,23 +110,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
     <link rel="stylesheet" href="./styles.css">
     <style>
-    .wrapper {
-        width: 350px;
-        padding: 20px;
-    }
+        .wrapper {
+            padding: 20px;
+        }
 
-    input {
-        display: flex;
-        justify-content: center;
-    }
+        .center2 {
+            margin: auto;
+            width: 15%;
+            padding: 10px;
+
+        }
+
+        input {
+            display: flex;
+            justify-content: center;
+        }
     </style>
 </head>
 
 <body>
     <?php include('nav.php'); ?>
-    <div class="wrapper">
-        <h2>Login</h2>
-        <p>Please fill in your credentials to login.</p>
+    <div class="wrapper center2">
+        <h2>Login</h2><br>
 
         <?php
         if (!empty($login_err)) {
@@ -134,31 +140,34 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         ?>
 
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-            <div class="form-group">
-                <label>Email</label>
-                <input type="text" name="email"
-                    class="form-control <?php echo (!empty($email_err)) ? 'is-invalid' : ''; ?>"
-                    value="<?php echo $email; ?>">
-                <span class="invalid-feedback"><?php echo $email_err; ?></span>
-            </div>
-            <div class="form-group">
-                <label>Password</label>
-                <input type="password" name="password"
-                    class="form-control <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>">
-                <span class="invalid-feedback"><?php echo $password_err; ?></span>
-            </div>
-            <div class="form-group">
-                <input style="margin-top: 10px;" type="submit" class="banner-btn" value="Login">
-            </div>
+            <div>
+                <div>
+                    <label>Email</label>
+                    <input type="text" name="email" value="<?php echo $email; ?>">
+                    <span style="color: red;"><?php echo $email_err; ?></span>
+                </div>
+                <div>
+                    <label>Password</label>
+                    <input type="password" name="password">
+                    <span style="color: red;" class="invalid-feedback"><?php echo $password_err; ?></span>
+                </div>
+                <div>
+                    <input style="margin-top: 10px;" type="submit" class="banner-btn" value="Login">
+                </div>
 
-            <p>Don't have an account? <a style="color: var(--primaryColor);" href="register.php">Sign up now</a>.</p>
+                <p>Don't have an account? <a style="color: var(--primaryColor);" href="register.php">Sign up now</a>.</p>
+            </div>
         </form>
     </div>
-
+    <?php
+    include("hidden-products.php");
+    ?>
     <?php
     include("cart.php");
     ?>
+
     <script src="./app.js"></script>
+    <?php include("footer.php"); ?>
 </body>
 
 </html>

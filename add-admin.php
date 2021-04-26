@@ -2,8 +2,9 @@
 
 session_start();
 
-if (isset($_SESSION['loggedin'])) {
-    header("location: welcome.php");
+// check if the user is an admin, if not route the user to the welcome page
+if ($_SESSION['role'] !== 'admin') {
+    header("Location: welcome.php");
 }
 
 // Include config file
@@ -76,7 +77,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
     //validate role
-
+    if (empty(trim($_POST["role"]))) {
+        $role_err = "Please select a role.";
+    } else {
+        $role = trim($_POST["role"]);
+    }
 
     // Check input errors before inserting in database
     if (empty($full_name_err) && empty($email_err) && empty($password_err) && empty($confirm_password_err)) {
@@ -92,12 +97,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $param_full_name = $full_name;
             $param_email = $email;
             $param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
-            $param_role = "user";
+            $param_role = "admin";
 
             // Attempt to execute the prepared statement
             if (mysqli_stmt_execute($stmt)) {
                 // Redirect to login page
-                header("location: login.php");
+                header("location: admin-options.php");
             } else {
                 echo "Oops! Something went wrong. Please try again later.";
             }
@@ -130,10 +135,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         }
 
-        .center2 {
-            margin: auto;
-            width: 15%;
-            padding: 10px;
+        .center {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
         }
 
         input {
@@ -151,44 +158,40 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <body>
     <?php include('nav.php'); ?>
-    <div>
-
-        <div class="center2">
-            <h2>Sign Up</h2><br>
-            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-                <div class="form-group">
-                    <label>Full Name</label>
-                    <input type="text" name="full_name" value="<?php echo $email; ?>">
-                    <span style="color: red;"><?php echo $email_err; ?></span>
-                </div>
-                <div class="form-group">
-                    <label>Email</label>
-                    <input type="text" name="email" value="<?php echo $email; ?>">
-                    <span style="color: red;"><?php echo $email_err; ?></span>
-                </div>
-                <div class="form-group">
-                    <label>Password</label>
-                    <input type="password" name="password" value="<?php echo $password; ?>">
-                    <span style="color: red;"><?php echo $password_err; ?></span>
-                </div>
-                <div class="form-group">
-                    <label>Confirm Password</label>
-                    <input type="password" name="confirm_password" value="<?php echo $confirm_password; ?>">
-                    <span style="color: red;"><?php echo $confirm_password_err; ?></span>
-                </div>
-                <!-- <div class="form-group">
+    <div class="wrapper center">
+        <h2>Create Admin Account</h2><br>
+        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+            <div class="form-group">
+                <label>Full Name</label>
+                <input type="text" name="full_name" class="form-control <?php echo (!empty($full_name_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $email; ?>">
+                <span class="invalid-feedback"><?php echo $email_err; ?></span>
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                <input type="text" name="email" class="form-control <?php echo (!empty($email_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $email; ?>">
+                <span class="invalid-feedback"><?php echo $email_err; ?></span>
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" name="password" class="form-control <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $password; ?>">
+                <span class="invalid-feedback"><?php echo $password_err; ?></span>
+            </div>
+            <div class="form-group">
+                <label>Confirm Password</label>
+                <input type="password" name="confirm_password" class="form-control <?php echo (!empty($confirm_password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $confirm_password; ?>">
+                <span class="invalid-feedback"><?php echo $confirm_password_err; ?></span>
+            </div>
+            <!-- <div class="form-group">
                 <label>Role</label>
                 <select name="role" class="form-control">
                     <option selected="selected" class="form-control">user</option>
                     <option class="form-control">admin</option>
                 </select>
             </div> -->
-                <div class="form-group">
-                    <input style="margin-top: 10px;" type="submit" class="banner-btn" value="Submit">
-                </div>
-                <p>Already have an account? <a style="color: var(--primaryColor);" href="login.php">Login here</a>.</p>
-            </form>
-        </div>
+            <div class="form-group">
+                <input style="margin-top: 10px;" type="submit" class="banner-btn" value="Submit">
+            </div>
+        </form>
     </div>
     <?php
     include("hidden-products.php");

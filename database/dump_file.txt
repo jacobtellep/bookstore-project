@@ -1,0 +1,130 @@
+-- MySQL dump 10.17  Distrib 10.3.18-MariaDB, for Linux (x86_64)
+--
+-- Host: localhost    Database: jtellep
+-- ------------------------------------------------------
+-- Server version	10.3.18-MariaDB
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `books`
+--
+
+DROP TABLE IF EXISTS `books`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `books` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) NOT NULL,
+  `price` decimal(10,2) NOT NULL,
+  `image` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=30 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `books`
+--
+
+LOCK TABLES `books` WRITE;
+/*!40000 ALTER TABLE `books` DISABLE KEYS */;
+INSERT INTO `books` VALUES (11,'Book One',12.99,'../uploads/images/book1.jpg'),(12,'Book Two',45.99,'../uploads/images/book2.jpg'),(13,'Book Three',55.99,'../uploads/images/book3.jpg'),(14,'Book Four',1.99,'../uploads/images/book4.jpg'),(15,'Book Five',34.99,'../uploads/images/book5.jpg'),(18,'Book Seven',10.00,'../uploads/images/book7.jpg'),(19,'Book Eight',44.44,'../uploads/images/book8.jpg'),(20,'Book Nine',12.00,'../uploads/images/book9.jpg'),(21,'Book Ten',9.99,'../uploads/images/book10.jpg');
+/*!40000 ALTER TABLE `books` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `images`
+--
+
+DROP TABLE IF EXISTS `images`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `images` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(200) NOT NULL,
+  `image` longtext NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `images`
+--
+
+LOCK TABLES `images` WRITE;
+/*!40000 ALTER TABLE `images` DISABLE KEYS */;
+INSERT INTO `images` VALUES (1,'book1.jpg','book one'),(2,'book2.jpg','book two'),(3,'book3.jpg','book three'),(4,'book4.jpg','book four'),(5,'book5.jpg','book five'),(6,'book6.jpg','book six'),(7,'book7.jpg','book seven'),(8,'book8.jpg','book eight'),(12,'book9.jpg',''),(13,'book10.jpg','book 10'),(14,'book1.jpg','book one'),(15,'book2.jpg','book 2'),(16,'book3.jpg','book three'),(17,'book4.jpg','book four'),(18,'book5.jpg',''),(19,'book5.jpg',''),(20,'book6.jpg',''),(21,'book7.jpg',''),(22,'book8.jpg',''),(23,'book9.jpg',''),(24,'book10.jpg',''),(25,'hero-bcg.jpeg',''),(26,'book6.jpg',''),(27,'book6.jpg',''),(28,'book11.jpg','');
+/*!40000 ALTER TABLE `images` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `orders`
+--
+
+DROP TABLE IF EXISTS `orders`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `orders` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `cart_content` longtext NOT NULL,
+  `customer_name` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `orders`
+--
+
+LOCK TABLES `orders` WRITE;
+/*!40000 ALTER TABLE `orders` DISABLE KEYS */;
+INSERT INTO `orders` VALUES (1,'[{\"title\":\"Book Two\",\"price\":\"45.99\",\"id\":\"12\",\"image\":\"../uploads/images/book2.jpg\",\"amount\":2},{\"title\":\"Book One\",\"price\":\"12.99\",\"id\":\"11\",\"image\":\"../uploads/images/book1.jpg\",\"amount\":1}]','user'),(2,'[{\"title\":\"Book Two\",\"price\":\"45.99\",\"id\":\"12\",\"image\":\"../uploads/images/book2.jpg\",\"amount\":2},{\"title\":\"Book One\",\"price\":\"12.99\",\"id\":\"11\",\"image\":\"../uploads/images/book1.jpg\",\"amount\":1}]','user'),(3,'[{\"title\":\"Book Two\",\"price\":\"45.99\",\"id\":\"12\",\"image\":\"../uploads/images/book2.jpg\",\"amount\":2},{\"title\":\"Book One\",\"price\":\"12.99\",\"id\":\"11\",\"image\":\"../uploads/images/book1.jpg\",\"amount\":1}]','user'),(4,'[{\"title\":\"Book Eight\",\"price\":\"44.44\",\"id\":\"19\",\"image\":\"../uploads/images/book8.jpg\",\"amount\":1},{\"title\":\"Book Four\",\"price\":\"1.99\",\"id\":\"14\",\"image\":\"../uploads/images/book4.jpg\",\"amount\":2},{\"title\":\"Book One\",\"price\":\"12.99\",\"id\":\"11\",\"image\":\"../uploads/images/book1.jpg\",\"amount\":6}]','Jacob Tellep');
+/*!40000 ALTER TABLE `orders` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `users`
+--
+
+DROP TABLE IF EXISTS `users`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `full_name` varchar(75) DEFAULT NULL,
+  `email` varchar(75) DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
+  `role` varchar(10) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `users`
+--
+
+LOCK TABLES `users` WRITE;
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES (1,'Jacob Tellep','jj.tellep@gmail.com','$2y$10$myPqS4qcqP/ewmX1ZAYwBuCWqainDsB825oFHtAK/Ji07Eqp0Hd5m','user'),(2,'Jacob Tellep','jtellep@mix.wvu.edu','$2y$10$WG.pfsBpH7uXAl4eE7QE.eFLwQ51mgmlkI6hEASejIo/4/jq599WW','admin'),(3,'Victoria Tellep','Victoriatellep@gmail.com','$2y$10$ZrQ630SfkV/LVXLe1nOeIOaoFNuLRl4sFXyriwYr.WuFQc8pYYGYy','user'),(4,'admin','admin@gmail.com','$2y$10$5aEMlY0XiX7x2/GfGU7qQ.AnYYtceX54lailw9Cls6LvIx84WehMS','admin'),(5,'user','user@gmail.com','$2y$10$nAKGakg4Bem063QC0XUDaejjjC3Ztnms71LUH.knvEhZSVY/Hcl86','user'),(6,'Victoria Tellep','victoria@gmail.com','$2y$10$8wG8L/qX.Jfb2aYBb5SwTe3rbWFlS6QDvomZNkPmljguEP0dGHlB.','admin'),(7,'testuser','testuser@gmail.com','$2y$10$LiUPGSAGVGW/8JgvXd8QMOc8vNtvrkCunOk6F9TuhYfEIOAAhm9Oi','user');
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2021-04-26  0:13:08

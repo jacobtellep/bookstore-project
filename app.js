@@ -1,6 +1,10 @@
-//variables
+// youtube source that helped me create my cart
+//https://www.youtube.com/watch?v=023Psne_-_4&t=13151s&ab_channel=freeCodeCamp.org
+
+// Declare variables
 
 const cartBtn = document.querySelector('.cart-btn');
+const checkoutBtn = document.getElementById('checkout-btn');
 const closeCartBtn = document.querySelector('.close-cart');
 const clearCartBtn = document.querySelector('.clear-cart');
 const cartDOM = document.querySelector('.cart');
@@ -20,9 +24,11 @@ let buttonsDOM = [];
 class Products {
   async getProducts() {
     try {
-      let result = await fetch('books.json');
+      // get products from json file
+      let result = await fetch('../uploads/documents/books.json');
       let data = await result.json();
       let products = data;
+      // extract the data needed from the json
       products = products.map((item) => {
         const title = item.title;
         const id = item.id;
@@ -39,6 +45,7 @@ class Products {
 
 // display products
 class UI {
+  // render the products to the shop page
   displayProducts(products) {
     let result = '';
     products.forEach((product) => {
@@ -62,6 +69,7 @@ class UI {
   } // end of displayProducts
 
   getBagButtons() {
+    // create an array of all of the bag buttons
     const buttons = [...document.querySelectorAll('.bag-btn')];
     buttonsDOM = buttons;
     buttons.forEach((button) => {
@@ -85,7 +93,7 @@ class UI {
         // display cart item
         this.addCartItem(cartItem);
         // show the cart
-        this.showCart();
+        //this.showCart();
       }); // end of click event listener
     });
   } // end of getBagButtons
@@ -114,7 +122,9 @@ class UI {
                     <i class="fas fa-chevron-up" data-id=${item.id}></i>
                     <p class="item-amount">${item.amount}</p>
                     <i class="fas fa-chevron-down" data-id=${item.id}></i>
-                </div>`;
+                </div>
+                `;
+    // add the item to the cart
     cartContent.appendChild(div);
   } // end of addCartItem
   showCart() {
@@ -216,6 +226,10 @@ class Storage {
       : [];
   }
 }
+
+checkoutBtn.addEventListener('click', () => {
+  document.getElementById('checkout-info').value = localStorage.getItem('cart');
+}); // end of click event listener
 
 document.addEventListener('DOMContentLoaded', () => {
   const ui = new UI();

@@ -11,7 +11,7 @@ while ($row = mysqli_fetch_assoc($result)) {
 }
 
 //write to json file
-$fp = fopen('books.json', 'w');
+$fp = fopen('../uploads/documents/books.json', 'w');
 fwrite($fp, json_encode($bookarray));
 fclose($fp);
 

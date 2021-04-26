@@ -1,5 +1,5 @@
 <?php session_start() ?>
-
+<!-- static contact information page -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,12 +30,14 @@
 
         </div>
     </header>
-
+    <?php
+    include("hidden-products.php");
+    ?>
     <?php
     include("cart.php");
     ?>
     <script src="./app.js"></script>
-
+    <?php include("footer.php"); ?>
 </body>
 
 </html>

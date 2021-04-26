@@ -1,13 +1,10 @@
 <?php
-// Initialize the session
+
 session_start();
 
-// Check if the user is logged in, if not then redirect him to login page
-if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
-    header("location: login.php");
-    exit;
+if ($_SESSION['role'] !== 'admin') {
+    header("Location: welcome.php");
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -17,15 +14,12 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome</title>
+    <title>Admin Options</title>
     <!-- font awesome -->
     <script src="https://kit.fontawesome.com/a2ccfb5bd3.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./styles.css">
-    <style>
-        .wrapper {
-            padding: 20px;
-        }
 
+    <style>
         .center {
             margin: auto;
             width: 15%;
@@ -37,24 +31,25 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
 
 <body>
     <?php include("nav.php"); ?>
+    <div class="center" style="margin-top: 50px;">
+        <h1>Admin Options</h1>
 
-
-    <div class="wrapper center">
-
-        <h1><?php echo "Hello " . $_SESSION["full_name"] . ".<br>" . " Your role is " . $_SESSION["role"] . "." ?></h1>
-
-        <div style="margin-top: 40px;">
-            <a href="./logout.php" class="banner-btn">Logout</a>
+        <div style="margin-top: 50px;">
+            <a href="image-upload-form.php" style="text-decoration: none; text-align:center;" class="clear-cart banner-btn">manage books</a>
         </div>
 
-
+        <div style="margin-top: 50px;">
+            <a href="add-admin.php" style="text-decoration: none; text-align:center; margin-top:220px;" class="clear-cart banner-btn">Add Admin</a>
+        </div>
     </div>
     <?php
     include("hidden-products.php");
     ?>
-    <?php include("cart.php"); ?>
-    <?php include("footer.php"); ?>
+    <?php
+    include("cart.php");
+    ?>
     <script src="./app.js"></script>
+    <?php include("footer.php"); ?>
 </body>
 
 </html>
