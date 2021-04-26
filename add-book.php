@@ -4,7 +4,11 @@
 include("connectdb.php");
 
 // Initialize message variable
+<<<<<<< HEAD
 $success = $title_error = $price_error = "";
+=======
+$msg = "";
+>>>>>>> 44f55b0f7a12405a5001b6a366a27a24d735d34f
 
 // If upload button is clicked ...
 if (isset($_POST['upload'])) {
@@ -13,6 +17,10 @@ if (isset($_POST['upload'])) {
     $image_name = $_FILES['image']['name'];
     // Get text
     $title = mysqli_real_escape_string($mysqli, $_POST['title']);
+<<<<<<< HEAD
+=======
+
+>>>>>>> 44f55b0f7a12405a5001b6a366a27a24d735d34f
     $price = mysqli_real_escape_string($mysqli, $_POST['price']);
 
     // image file directory
@@ -23,6 +31,7 @@ if (isset($_POST['upload'])) {
     //Check ecampus
 
     $sql = "INSERT INTO books (title, price, image) VALUES ('$title', '$price', '$image_path')";
+<<<<<<< HEAD
 
 
     // execute query
@@ -35,4 +44,10 @@ if (isset($_POST['upload'])) {
         $price_error = "Please enter a price.";
         return;
     }
+=======
+    echo "<h1>Successfully added the book.</h1><br>";
+
+    // execute query
+    mysqli_query($mysqli, $sql);
+>>>>>>> 44f55b0f7a12405a5001b6a366a27a24d735d34f
 }

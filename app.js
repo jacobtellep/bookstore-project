@@ -24,8 +24,13 @@ let buttonsDOM = [];
 class Products {
   async getProducts() {
     try {
+<<<<<<< HEAD
       // get products from json file
       let result = await fetch('../uploads/documents/books.json');
+=======
+      let result = await fetch('../uploads/documents/books.json');
+      console.log(result);
+>>>>>>> 44f55b0f7a12405a5001b6a366a27a24d735d34f
       let data = await result.json();
       let products = data;
       // extract the data needed from the json

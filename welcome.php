@@ -38,22 +38,35 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
 <body>
     <?php include("nav.php"); ?>
 
+<<<<<<< HEAD
 
     <div class="wrapper center">
 
         <h1><?php echo "Hello " . $_SESSION["full_name"] . ".<br>" . " Your role is " . $_SESSION["role"] . "." ?></h1>
 
+=======
+
+    <div class="wrapper center">
+
+        <h1><?php echo "Hello " . $_SESSION["full_name"] . ".<br>" . " Your role is " . $_SESSION["role"] . "." ?></h1>
+
+>>>>>>> 44f55b0f7a12405a5001b6a366a27a24d735d34f
         <div style="margin-top: 40px;">
             <a href="./logout.php" class="banner-btn">Logout</a>
         </div>
 
 
     </div>
+<<<<<<< HEAD
     <?php
     include("hidden-products.php");
     ?>
     <?php include("cart.php"); ?>
     <?php include("footer.php"); ?>
+=======
+
+    <?php include("cart.php"); ?>
+>>>>>>> 44f55b0f7a12405a5001b6a366a27a24d735d34f
     <script src="./app.js"></script>
 </body>
 

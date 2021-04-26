@@ -1,8 +1,19 @@
 <?php
+<<<<<<< HEAD
 
 include("connectdb.php");
 
 
+=======
+//src: https://codewithawa.com/posts/image-upload-using-php-and-mysql-database
+// Create database connection
+include("connectdb.php");
+
+
+// If upload button is clicked ...
+
+
+>>>>>>> 44f55b0f7a12405a5001b6a366a27a24d735d34f
 
 $select = "SELECT * FROM books;";
 // execute query
@@ -60,7 +71,11 @@ if (isset($_POST['delete'])) {
 
 <body>
     <div>
+<<<<<<< HEAD
         <select name="choose_delete" style="width: 195px;">
+=======
+        <select name="choose_delete">
+>>>>>>> 44f55b0f7a12405a5001b6a366a27a24d735d34f
             <?php
             while ($row = mysqli_fetch_array($books)) {
                 echo "<option>" . $row['title'] . "</option>";
@@ -69,6 +84,7 @@ if (isset($_POST['delete'])) {
         </select>
     </div>
     <div>
+<<<<<<< HEAD
         <button style="margin-top: 20px; width: 195px;" class="banner-btn" type="submit" name="delete">Delete</button>
     </div>
     </form>
@@ -78,6 +94,13 @@ if (isset($_POST['delete'])) {
     ?>
     <?php include("cart.php"); ?>
     <?php include("footer.php"); ?>
+=======
+        <button style="margin-top: 20px;" class="banner-btn" type="submit" name="delete">Delete Book</button>
+    </div>
+    </form>
+    </div>
+    <?php include("cart.php"); ?>
+>>>>>>> 44f55b0f7a12405a5001b6a366a27a24d735d34f
     <script src="./app.js"></script>
 </body>
 

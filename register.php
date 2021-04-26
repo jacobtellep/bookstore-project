@@ -130,10 +130,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         }
 
+<<<<<<< HEAD
         .center2 {
             margin: auto;
             width: 15%;
             padding: 10px;
+=======
+        .center {
+            margin: auto;
+            width: 15%;
+            padding: 10px;
+
+>>>>>>> 44f55b0f7a12405a5001b6a366a27a24d735d34f
         }
 
         input {
@@ -151,6 +159,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <body>
     <?php include('nav.php'); ?>
+<<<<<<< HEAD
     <div>
 
         <div class="center2">
@@ -177,6 +186,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <span style="color: red;"><?php echo $confirm_password_err; ?></span>
                 </div>
                 <!-- <div class="form-group">
+=======
+    <div class="wrapper center">
+        <h2>Sign Up</h2><br>
+        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+            <div class="form-group">
+                <label>Full Name</label>
+                <input type="text" name="full_name" class="form-control <?php echo (!empty($full_name_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $email; ?>">
+                <span class="invalid-feedback"><?php echo $email_err; ?></span>
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                <input type="text" name="email" class="form-control <?php echo (!empty($email_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $email; ?>">
+                <span class="invalid-feedback"><?php echo $email_err; ?></span>
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" name="password" class="form-control <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $password; ?>">
+                <span class="invalid-feedback"><?php echo $password_err; ?></span>
+            </div>
+            <div class="form-group">
+                <label>Confirm Password</label>
+                <input type="password" name="confirm_password" class="form-control <?php echo (!empty($confirm_password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $confirm_password; ?>">
+                <span class="invalid-feedback"><?php echo $confirm_password_err; ?></span>
+            </div>
+            <div class="form-group">
+>>>>>>> 44f55b0f7a12405a5001b6a366a27a24d735d34f
                 <label>Role</label>
                 <select name="role" class="form-control">
                     <option selected="selected" class="form-control">user</option>

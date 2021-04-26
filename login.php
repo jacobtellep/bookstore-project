@@ -114,7 +114,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             padding: 20px;
         }
 
+<<<<<<< HEAD
         .center2 {
+=======
+        .center {
+>>>>>>> 44f55b0f7a12405a5001b6a366a27a24d735d34f
             margin: auto;
             width: 15%;
             padding: 10px;
@@ -130,7 +134,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <body>
     <?php include('nav.php'); ?>
+<<<<<<< HEAD
     <div class="wrapper center2">
+=======
+    <div class="wrapper center">
+>>>>>>> 44f55b0f7a12405a5001b6a366a27a24d735d34f
         <h2>Login</h2><br>
 
         <?php
@@ -141,6 +149,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <div>
+<<<<<<< HEAD
                 <div>
                     <label>Email</label>
                     <input type="text" name="email" value="<?php echo $email; ?>">
@@ -157,6 +166,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                 <p>Don't have an account? <a style="color: var(--primaryColor);" href="register.php">Sign up now</a>.</p>
             </div>
+=======
+                <label>Email</label>
+                <input type="text" name="email" value="<?php echo $email; ?>">
+                <span><?php echo $email_err; ?></span>
+            </div>
+            <div>
+                <label>Password</label>
+                <input type="password" name="password">
+                <span class="invalid-feedback"><?php echo $password_err; ?></span>
+            </div>
+            <div>
+                <input style="margin-top: 10px;" type="submit" class="banner-btn" value="Login">
+            </div>
+
+            <p>Don't have an account? <a style="color: var(--primaryColor);" href="register.php">Sign up now</a>.</p>
+>>>>>>> 44f55b0f7a12405a5001b6a366a27a24d735d34f
         </form>
     </div>
     <?php

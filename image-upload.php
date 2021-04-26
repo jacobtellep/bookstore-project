@@ -32,4 +32,8 @@ if (isset($_POST['upload'])) {
 	} else {
 		$msg = "Failed to upload image";
 	}
+<<<<<<< HEAD
+=======
+	echo $msg;
+>>>>>>> 44f55b0f7a12405a5001b6a366a27a24d735d34f
 }
